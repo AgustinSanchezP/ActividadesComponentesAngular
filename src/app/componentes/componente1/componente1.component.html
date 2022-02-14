@@ -1,0 +1,25 @@
+<div class="row">
+  <section class="col-12 bg-primary">
+    <h3>Componente 1</h3>
+    <button type="button" (click)="eventoBotonAngular()" class="btn btn-danger btn-blok">Intercambiar</button>
+  </section>
+</div>
+
+<div class="row">
+  <div class="col-3 bg-secondary d-flex align-items-stretch float-start">
+    <app-componente4></app-componente4>
+  </div>
+
+  <div class="col-9 bg-success align-self-start">
+    <app-componente2 [datosC2]="curso1"></app-componente2>
+    <input [(ngModel)] = "curso1.nombre" class="form-control">{{contador}}
+  </div>
+
+  <div class="col-3 bg-secondary d-flex align-items-stretch float-start"><app-componente4></app-componente4><br></div>
+
+  <div class="col-9 bg-warning align-self-end">
+    <app-componente3 [datosC3]="curso2"></app-componente3>
+    <input [(ngModel)] = "curso2.nombre" class="form-control">
+    <input [(ngModel)] = "curso2.descripcion" class="form-control">{{contador}}
+  </div>
+</div>
