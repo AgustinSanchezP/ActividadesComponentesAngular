@@ -13,18 +13,11 @@ export class Componente1Component implements OnInit {
 
   contador: number = 0;
 
+  newCurso1Nombre = this.curso2.nombre;
+  newCurso1Desc = this.curso2.descripcion;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-
-    for(const propName in changes){
-      const chng = changes[propName];
-      const cur = JSON.stringify(chng.currentValue);
-      const prev = JSON.stringify(chng.previousValue);
-      this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
-    }
-  }
+  newCurso2Nombre = this.curso1.nombre;
+  newCurso2Desc = this.curso1.descripcion;
 
   constructor() { }
 
@@ -33,6 +26,18 @@ export class Componente1Component implements OnInit {
 
   eventoBotonAngular(){
     this.contador = this.contador + 1;
+
+    if(this.curso1.nombre == this.newCurso2Nombre){
+      this.curso1.nombre = this.newCurso1Nombre;
+      this.curso1.descripcion = this.newCurso1Desc;
+      this.curso2.nombre = this.newCurso2Nombre;
+      this.curso2.descripcion = this.newCurso2Desc;
+    }else{
+      this.curso1.nombre = this.newCurso2Nombre;
+      this.curso1.descripcion = this.newCurso2Desc;
+      this.curso2.nombre = this.newCurso1Nombre;
+      this.curso2.descripcion = this.newCurso1Desc;
+    }
   }
 
 }

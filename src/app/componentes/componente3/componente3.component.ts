@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class Componente3Component implements OnInit {
 
   @Input("datosC3") datosPasadosAlC3: any;
+  @Input("contadorC3") contadorPasadoAlC3: any;
 
   constructor() { }
 
